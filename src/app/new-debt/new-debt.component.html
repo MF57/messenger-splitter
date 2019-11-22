@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>ADD NEW DEBT</h1>
+<div class="input-wrapper" mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Descrption" [(ngModel)]="data.description">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="number" matInput placeholder="Price" [(ngModel)]="data.price">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">DISCARD</button>
+  <button mat-button mat-raised-button [color]="'primary'" [mat-dialog-close]="data" cdkFocusInitial>ADD</button>
+</div>

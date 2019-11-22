@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Person} from '../service/people.service';
-import {Debt} from '../model/model';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {Person} from '../model/model';
 
 @Component({
   selector: 'app-person-debts',
@@ -12,7 +10,8 @@ export class PersonDebtsComponent implements OnInit {
 
   @Input() person: Person;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

@@ -42,13 +42,15 @@ import {CdkTreeModule} from '@angular/cdk/tree';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { UnassignedDebtComponent } from './unassigned-debt/unassigned-debt.component';
 import {HttpClientModule} from '@angular/common/http';
+import { NewDebtComponent } from './new-debt/new-debt.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     PersonDebtsComponent,
-    UnassignedDebtComponent
+    UnassignedDebtComponent,
+    NewDebtComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +97,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
+  entryComponents: [NewDebtComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

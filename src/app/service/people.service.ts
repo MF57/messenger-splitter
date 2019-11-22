@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {Debt} from '../model/model';
+import {Debt, Debters, Person} from '../model/model';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
@@ -22,14 +22,9 @@ export class PeopleService {
   }
 
   public save(people: Person[]): Observable<void> {
-    return this.http.post<void>("https://publo.app/debts", people);
+    const debters = new Debters("1", people);
+    return this.http.post<void>("http://10.12.250.20:443/debts", debters, {responseType: "text" as "json"});
   }
 
 
-}
-
-
-export class Person {
-  constructor(public id: string, public name: string, public imageSrc: string, public debts: Debt[]) {
-  }
 }
