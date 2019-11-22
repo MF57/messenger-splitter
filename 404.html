@@ -26,6 +26,9 @@
             function success(thread_context){
                 // success
                 alert("SUCCESS: " + JSON.stringify(thread_context));
+                var div = document.createElement("div");
+                div.innerText = JSON.stringify(thread_context);
+                document.body.appendChild(div);
 
             },
             function error(err){
@@ -43,6 +46,9 @@
           function success(thread_context){
               // success
               alert("SUCCESS: " + JSON.stringify(thread_context));
+              var div = document.createElement("div");
+              div.innerText = JSON.stringify(thread_context);
+              document.body.appendChild(div);
 
           },
           function error(err){
