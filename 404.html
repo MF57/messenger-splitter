@@ -25,15 +25,34 @@
         MessengerExtensions.getContext('410323486289712',
             function success(thread_context){
                 // success
-                alert("SUCCESS: " + thread_context);
+                alert("SUCCESS z eventu: " + thread_context);
 
             },
             function error(err){
                 // error
-                alert("ERROR: " + err);
+                alert("ERROR z eventy: " + err);
             }
         );
     };
+
+
+  setTimeout(function() {
+      // the Messenger Extensions JS SDK is done loading
+      alert("2 SEKUNDY");
+      MessengerExtensions.getContext('410323486289712',
+          function success(thread_context){
+              // success
+              alert("SUCCESS: " + thread_context);
+
+          },
+          function error(err){
+              // error
+              alert("ERROR: " + err);
+          }
+      );
+  }, 2000)
+
+
 </script>
 <script src="runtime-es2015.edb2fcf2778e7bf1d426.js" type="module"></script><script src="runtime-es5.edb2fcf2778e7bf1d426.js" nomodule defer></script><script src="polyfills-es5.6696c533341b95a3d617.js" nomodule defer></script><script src="polyfills-es2015.2987770fde9daa1d8a2e.js" type="module"></script><script src="main-es2015.a8930032abc5cc57181f.js" type="module"></script><script src="main-es5.a8930032abc5cc57181f.js" nomodule defer></script></body>
 </html>
