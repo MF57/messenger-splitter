@@ -1,0 +1,78 @@
+.person-wrapper {
+  position: absolute;
+}
+
+$margin: 50px;
+
+.person-0 {
+  top: $margin;
+  left: $margin;
+}
+
+.person-1 {
+  top: $margin;
+  right: $margin;
+}
+
+.person-2 {
+  top: 50%;
+  left: $margin;
+}
+
+
+.person-3 {
+  top: 50%;
+  right: $margin;
+}
+
+
+.person-4 {
+  bottom: $margin;
+  left: $margin;
+}
+
+
+.person-5 {
+  bottom: $margin;
+  right: $margin;
+}
+
+.unasigned-debts-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.unassigned-debts-wrapper {
+  background-color: #393b39;
+}
+
+.assigned-debts-wrapper {
+  width: 100px;
+  height: 100px;
+}
+
+.add-icon {
+  position: fixed;
+  bottom: 24px;
+  right: calc(50% - 20px);
+  z-index: 100;
+  color: #04fc7c;
+  background-color: #393b39;
+}
+
+.save-icon {
+  position: fixed;
+  top: 24px;
+  right: calc(50% - 20px);
+  z-index: 100;
+  color: #04fc7c;
+  background-color: #393b39;
+}
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+<div class="person-wrapper">
+  <img class="person-image" [src]="person.imageSrc" alt="">
+
+  <ng-content></ng-content>
+
+  <div *ngIf="person.debts.length === 0" class="empty-wrapper">
+    <div class="empty-message">Drag Debts Here</div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="person-wrapper" *ngFor="let person of people; let i = index" [ngClass]="'person-' + i">
+  <app-person-debts [person]="person">
+    <div
+      cdkDropList id="{{person.id}}"
+      [cdkDropListConnectedTo]="connectedTo"
+      [cdkDropListData]="person.debts"
+      (cdkDropListDropped)="drop($event)"
+      class="assigned-debts-wrapper">
+      <app-unassigned-debt cdkDrag *ngFor="let debt of person.debts" [debt]="debt"></app-unassigned-debt>
+    </div>
+  </app-person-debts>
+</div>
+
+
+<div class="unasigned-debts-wrapper">
+  <div
+    id="unassigned-list"
+    cdkDropList
+    [cdkDropListConnectedTo]="connectedTo"
+    [cdkDropListData]="unassignedDebts"
+    (cdkDropListDropped)="drop($event)"
+    class="unassigned-debts-wrapper">
+    <app-unassigned-debt cdkDrag *ngFor="let debt of unassignedDebts" [debt]="debt"></app-unassigned-debt>
+  </div>
+
+
+</div>
+
+
+<button (click)="addUnassignedDebt()" class="add-icon" mat-fab color="primary">
+  <mat-icon>add</mat-icon>
+</button>
+
+<button (click)="save()" class="save-icon" mat-raised-button color="primary">Save</button>
+
+
+
+
+
+
+

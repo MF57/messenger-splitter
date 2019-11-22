@@ -1,0 +1,39 @@
+.person-wrapper {
+  border: 5px solid #393b39;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.person-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: -22.5px;
+  left: 30px;
+  border: 1px solid #393b39;
+}
+
+
+.empty-wrapper {
+  width: calc(100% - 20px);
+  margin: 30px 10px 10px;
+  background-color: #393b39;
+  min-width: 100px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #616361;
+  }
+
+  .empty-message {
+    color: #04fc7c;
+    margin: 0 10px;
+  }
+}
