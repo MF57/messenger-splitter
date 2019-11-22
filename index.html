@@ -25,7 +25,7 @@
         MessengerExtensions.getContext('410323486289712',
             function success(thread_context){
                 // success
-                alert("SUCCESS z eventu: " + thread_context);
+                alert("SUCCESS: " + JSON.toString(thread_context));
 
             },
             function error(err){
@@ -42,7 +42,7 @@
       MessengerExtensions.getContext('410323486289712',
           function success(thread_context){
               // success
-              alert("SUCCESS: " + thread_context);
+              alert("SUCCESS: " + JSON.toString(thread_context));
 
           },
           function error(err){
