@@ -17,23 +17,4 @@
 }
 
 
-.empty-wrapper {
-  width: calc(100% - 20px);
-  margin: 30px 10px 10px;
-  background-color: #393b39;
-  min-width: 100px;
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
 
-  &:hover {
-    background-color: #616361;
-  }
-
-  .empty-message {
-    color: #04fc7c;
-    margin: 0 10px;
-  }
-}

@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Debt, Debters, Person} from '../model/model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class PeopleService {
@@ -30,15 +31,46 @@ export class PeopleService {
 
   public save(people: Person[]): Observable<void> {
     let userId;
-    if (window["thread_context"]) {
-      userId = window["thread_context"].psid;
+    if (window['threadContext']) {
+      userId = window['threadContext'].psid;
       alert(userId);
     } else {
-      userId = "2607027426054154";
+      userId = '2607027426054154';
+      alert("DUPA");
     }
     const debters = new Debters(userId, people);
-    return this.http.post<void>("https://publo.app/debts", debters, {responseType: "text" as "json"});
+    return this.http.post<void>('https://publo.app/debts', debters, {responseType: 'text' as 'json'});
+  }
+
+
+  public analyzeReceipt(file: File, stream: ArrayBuffer): Observable<Debt> {
+    let formData = {
+      file: []
+    };
+    formData.file.push({
+      value: stream,
+      options: {
+        filename: file.name,
+        contentType: 'image/jpg'
+      }
+    });
+
+    const headers = new HttpHeaders().set('apikey', 'uCX9wOdHCg6u0nEn9tiJWqxrW5R4rP6obiaMoGgUatkhVN4Zjz8NDbndj0Bh0YJx');
+
+    return this.http.post<any>('https://publo.app/receipt', formData, {headers: headers, responseType: 'text' as 'json'}).pipe(
+      map(result => {
+        const json = JSON.parse(result);
+        return json.result.lineItems.map(item => {
+          return new Debt('0', item.desc, +item.lineTotal);
+        });
+      })
+    );
+
   }
 
 
 }
+
+
+
+

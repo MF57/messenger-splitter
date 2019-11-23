@@ -43,25 +43,42 @@ $margin: 50px;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  flex-direction: column;
 }
 
 .unasigned-debts-wrapper {
   min-width: 50px;
   min-height: 50px;
-  border: 1px solid #393b39;
+  border: 5px solid #393b39;
   display: flex;
   flex-direction: column;
   padding: 20px;
   justify-content: center;
   align-items: center;
+
+  &:hover span, &:-moz-drag-over span {
+    display: none;
+  }
 }
 
 
 .assigned-debts-wrapper {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  min-height: 100px;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+
+  &:hover span, &:-moz-drag-over span {
+    display: none;
+  }
 }
+
 
 .add-icon {
   position: fixed;
@@ -85,14 +102,44 @@ $margin: 50px;
 
 @media only screen and (max-width: 600px) {
 
+  .unasigned-debts-wrapper {
+    margin-bottom: 30px;
+  }
+
   .person-wrapper {
-    display: none;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .person-0, .person-1, .person-2, .person-3, .person-4, .person-5 {
+    top: initial;
+    left: initial;
+    right: initial;
+    bottom: initial;
   }
 
 }
 
 
 
+
+.hidden {
+  display: none;
+}
+
+.upload-icon {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #393b39;
+  position: fixed;
+  width: 150px;
+  bottom: 90px;
+  left: calc(50% - 75px);
+  z-index: 100;
+  color: #04fc7c;
+  cursor: pointer;
+}
 
 
 

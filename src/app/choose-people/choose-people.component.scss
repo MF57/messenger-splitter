@@ -55,6 +55,19 @@
   background-color: #393b39;
 }
 
+.waiting-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .waiting-image {
+    border-radius: 50%;
+    margin-bottom: 40px;
+  }
+}
+
 @media only screen and (max-width: 600px)  {
 
   .main-wrapper {

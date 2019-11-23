@@ -2,3 +2,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.mat-dialog-actions .mat-button-base+.mat-button-base {
+  margin-left: auto !important;
+  background-color: #04fc7c;
+  color: #393b39;
+}

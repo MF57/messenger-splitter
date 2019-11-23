@@ -10,6 +10,12 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
+mat-dialog-container {
+  background-color: #393b39 !important;
+  color: #04fc7c !important;
+}
+
+
 //
 //@media only screen and (max-width: 600px) {
 //  body {

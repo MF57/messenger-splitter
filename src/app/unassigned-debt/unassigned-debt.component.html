@@ -1,7 +1,11 @@
 <div class="wrapper">
   <div class="header">
-    <mat-icon>drag_indicator</mat-icon>
+    <mat-icon class="drag-indicator">drag_indicator</mat-icon>
+  </div>
+  <div class="right-wrapper">
+    <mat-icon (click)="edit()">edit</mat-icon>
+    <mat-icon (click)="delete()">delete</mat-icon>
   </div>
   <div class="description"> {{debt.description}}</div>
-  <div class="price"> {{debt.price | currency }}</div>
+  <div class="price"> {{debt.price | currency:"PLN" }}</div>
 </div>

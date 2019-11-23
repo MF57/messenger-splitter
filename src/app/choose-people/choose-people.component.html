@@ -8,6 +8,10 @@
     </div>
     <button (click)="save()" class="save-icon" mat-raised-button color="primary">ROZDZIEL PŁATNOŚCI</button>
   </div>
+  <div *ngIf="availablePeople.length === 0" class="waiting-wrapper">
+    <img class="waiting-image" src="https://scontent.fwaw3-1.fna.fbcdn.net/v/t1.0-9/77106435_160316442027116_2509798301587472384_n.jpg?_nc_cat=100&_nc_ohc=jkG3V9TVa7gAQnWJGRaIi96DfQKQzX2qbVX2LbTqrrhzchCvsGyitKM8Q&_nc_ht=scontent.fwaw3-1.fna&oh=436196e1c4f6597ab60c60366845a164&oe=5E8666A4"/>
+    <mat-spinner></mat-spinner>
+  </div>
 </div>
 
 

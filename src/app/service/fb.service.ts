@@ -10,14 +10,14 @@ export class FbService {
   }
 
   private baseUrl = 'https://graph.facebook.com/v5.0/';
-  private token = 'EAAF1LZBGkrzABANxAm9ZCcUPAWNptrhvV0LbjdZCssVcgDvaeF3u7mTiojaLjCOlOLo9qmaOoYCEsvhd1jRr7DD4ZBPbFET1A7s5TSShEPIR5nv4YNGcZBqRnDEoZCVKJQocNiDC72bYQKKoXTf9ZAVlduYqxDgUZA5iJAsLXzg585XzuZBbnsGlZB6SwSiZA4uWtAu518Y5ebRwAZDZD';
+  private token = 'EAAF1LZBGkrzABAKoNxF4j1zzkjYA1UC7qR5aTMqFLE7MYyLDSZBicZC5DZBfxBaG4otZB8ZCZCJSvP9z4avEfK1EWZA9UXdgsmV1iDDeQLHVcYk9BgVwq2KV04k8dAjT4o7Ex8ODEgWb5gnysfpQ9exUxxCY6AGZCMpRkW2aY2hbV8ZAFK74LKlMk24LtiDxWuWd7qOGpBzMlGDAZDZD';
   private url = 'https://graph.facebook.com/v5.0/2607027426054154/threads';
 
 
   getAvailablePeople(): Observable<any> {
     let userId;
-    if (window["thread_context"]) {
-      userId = window["thread_context"].psid;
+    if (window["threadContext"]) {
+      userId = window["threadContext"].psid;
       alert(userId);
     } else {
       userId = "2607027426054154";

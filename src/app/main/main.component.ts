@@ -14,11 +14,15 @@ export class MainComponent implements OnInit {
 
   public people: Person[] = [];
   public unassignedDebts: Debt[] = [];
-  public threadContext: string = "";
+  public threadContext: string = '';
 
-  public connectedTo = ["unassigned-list"];
+  receipt: File | null = null;
 
-  constructor(private peopleService: PeopleService, private changeDetector: ChangeDetectorRef, public dialog: MatDialog) { }
+
+  public connectedTo = ['unassigned-list'];
+
+  constructor(private peopleService: PeopleService, private changeDetector: ChangeDetectorRef, public dialog: MatDialog) {
+  }
 
   ngOnInit() {
     this.peopleService.getPeople().subscribe(people => {
@@ -26,24 +30,37 @@ export class MainComponent implements OnInit {
       this.people.forEach(person => {
         this.connectedTo.push(person.id);
       });
-      this.threadContext = window["threadContext"];
-    })
+      this.threadContext = window['threadContext'];
+    });
   }
 
 
   addUnassignedDebt(): void {
     if (this.unassignedDebts.length <= 5) {
       const dialogRef = this.dialog.open(NewDebtComponent, {
-        data: new Debt("1", "", 0)
+        width: '500px',
+        data: new Debt('1', '', undefined)
       });
       dialogRef.afterClosed().subscribe(result => {
-        console.log(result);
         if (result) {
           this.unassignedDebts.push(result);
         }
       });
 
     }
+  }
+
+  deleteDebt(debt: Debt): void {
+    console.log('ELO');
+    this.unassignedDebts = this.unassignedDebts.filter(d => d !== debt);
+    this.people.forEach(person => {
+      person.debts = person.debts.filter(d => d !== debt);
+    });
+  }
+
+
+  editDebt(): void {
+
   }
 
 
@@ -63,14 +80,32 @@ export class MainComponent implements OnInit {
   save() {
 
     this.peopleService.save(this.people).subscribe(result => {
+        window['MessengerExtensions'].requestCloseBrowser(function success() {
+        }, function error(err) {
+          // an error occurred
+        });
       }
     );
-    window["MessengerExtensions"].requestCloseBrowser(function success() {
-      alert("JAJAAJAJ")
-    }, function error(err) {
-      // an error occurred
-      alert("NNONONON")
-    });
+
+  }
+
+
+  onFileChange(event) {
+    const reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+
+      reader.readAsArrayBuffer(file);
+
+      reader.onload = () => {
+        this.peopleService.analyzeReceipt(file, reader.result as ArrayBuffer).subscribe(debts => {
+          this.unassignedDebts = this.unassignedDebts.concat(debts);
+          console.log(this.unassignedDebts);
+
+        });
+      };
+    }
   }
 
 }

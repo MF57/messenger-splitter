@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Debt} from '../model/model';
 
 @Component({
@@ -9,10 +9,20 @@ import {Debt} from '../model/model';
 export class UnassignedDebtComponent implements OnInit {
 
   @Input() debt: Debt;
+  @Output() deleteEvent: EventEmitter<any> = new EventEmitter();
+  @Output() editEvent: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  delete() {
+    this.deleteEvent.emit()
+  }
+
+  edit() {
+    this.editEvent.emit()
   }
 
 }

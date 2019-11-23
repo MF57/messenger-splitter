@@ -1,16 +1,3 @@
-<div class="person-wrapper" *ngFor="let person of people; let i = index" [ngClass]="'person-' + i">
-  <app-person-debts [person]="person">
-    <div
-      cdkDropList id="{{person.id}}"
-      [cdkDropListConnectedTo]="connectedTo"
-      [cdkDropListData]="person.debts"
-      (cdkDropListDropped)="drop($event)"
-      class="assigned-debts-wrapper">
-      <app-unassigned-debt cdkDrag *ngFor="let debt of person.debts" [debt]="debt"></app-unassigned-debt>
-    </div>
-  </app-person-debts>
-</div>
-
 
 <div class="main-wrapper">
   <div class="unasigned-debts-wrapper">
@@ -24,11 +11,26 @@
       [cdkDropListData]="unassignedDebts"
       (cdkDropListDropped)="drop($event)"
       class="unassigned-debts-wrapper">
-      <app-unassigned-debt cdkDrag *ngFor="let debt of unassignedDebts" [debt]="debt"></app-unassigned-debt>
+      <app-unassigned-debt (deleteEvent)="deleteDebt(debt)" (editEvent)="editDebt()" cdkDrag *ngFor="let debt of unassignedDebts" [debt]="debt"></app-unassigned-debt>
+      <span *ngIf="unassignedDebts.length === 0">Stwórz pozycję</span>
     </div>
-    <div *ngIf="unassignedDebts.length === 0">Stwórz pozycję</div>
   </div>
+  <div class="person-wrapper" *ngFor="let person of people; let i = index" [ngClass]="'person-' + i">
+    <app-person-debts [person]="person">
+      <div
+        cdkDropList id="{{person.id}}"
+        [cdkDropListConnectedTo]="connectedTo"
+        [cdkDropListData]="person.debts"
+        (cdkDropListDropped)="drop($event)"
+        class="assigned-debts-wrapper">
+        <app-unassigned-debt (deleteEvent)="deleteDebt(debt)" (editEvent)="editDebt()" cdkDrag *ngFor="let debt of person.debts" [debt]="debt"></app-unassigned-debt>
+        <span *ngIf="person.debts.length === 0">Przeciągnij tutaj</span>
+      </div>
+    </app-person-debts>
+  </div>
+
 </div>
+
 
 
 
@@ -38,8 +40,10 @@
   <mat-icon>add</mat-icon>
 </button>
 
-<button (click)="save()" class="save-icon" mat-raised-button color="primary">Save</button>
+<button (click)="save()" class="save-icon" mat-raised-button color="primary">Powiadom wszystkich i zakończ</button>
 
+<input (change)="onFileChange($event)" [(ngModel)]="receipt" class="hidden" id="input-file-id" multiple type="file" />
+<label for="input-file-id" class="upload-icon">Prześlij paragon</label>
 
 
 

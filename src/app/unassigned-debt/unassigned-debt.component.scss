@@ -24,8 +24,17 @@
     align-items: center;
     color: #04fc7c;
 
-    .mat-icon {
+    mat-icon.drag-indicator {
       transform: rotate(90deg);
+    }
+  }
+
+  .right-wrapper {
+    width: 100%;
+    display: flex;
+
+    mat-icon:first-child {
+      flex-grow: 1;
     }
   }
 
