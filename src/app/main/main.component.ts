@@ -14,6 +14,7 @@ export class MainComponent implements OnInit {
 
   public people: Person[] = [];
   public unassignedDebts: Debt[] = [];
+  public threadContext: string = "";
 
   public connectedTo = ["unassigned-list"];
 
@@ -24,7 +25,8 @@ export class MainComponent implements OnInit {
       this.people = people;
       this.people.forEach(person => {
         this.connectedTo.push(person.id);
-      })
+      });
+      this.threadContext = window["threadContext"];
     })
   }
 
@@ -59,10 +61,16 @@ export class MainComponent implements OnInit {
   }
 
   save() {
+
     this.peopleService.save(this.people).subscribe(result => {
-        alert(result);
       }
-    )
+    );
+    window["MessengerExtensions"].requestCloseBrowser(function success() {
+      alert("JAJAAJAJ")
+    }, function error(err) {
+      // an error occurred
+      alert("NNONONON")
+    });
   }
 
 }

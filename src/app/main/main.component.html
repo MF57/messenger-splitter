@@ -12,19 +12,26 @@
 </div>
 
 
-<div class="unasigned-debts-wrapper">
-  <div
-    id="unassigned-list"
-    cdkDropList
-    [cdkDropListConnectedTo]="connectedTo"
-    [cdkDropListData]="unassignedDebts"
-    (cdkDropListDropped)="drop($event)"
-    class="unassigned-debts-wrapper">
-    <app-unassigned-debt cdkDrag *ngFor="let debt of unassignedDebts" [debt]="debt"></app-unassigned-debt>
+<div class="main-wrapper">
+  <div class="unasigned-debts-wrapper">
+    <div *ngIf="unassignedDebts.length !== 0" class="badges-wrapper">
+      <div>Nieprzypisane pozycje</div>
+    </div>
+    <div
+      id="unassigned-list"
+      cdkDropList
+      [cdkDropListConnectedTo]="connectedTo"
+      [cdkDropListData]="unassignedDebts"
+      (cdkDropListDropped)="drop($event)"
+      class="unassigned-debts-wrapper">
+      <app-unassigned-debt cdkDrag *ngFor="let debt of unassignedDebts" [debt]="debt"></app-unassigned-debt>
+    </div>
+    <div *ngIf="unassignedDebts.length === 0">Stwórz pozycję</div>
   </div>
-
-
 </div>
+
+
+
 
 
 <button (click)="addUnassignedDebt()" class="add-icon" mat-fab color="primary">

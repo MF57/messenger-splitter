@@ -4,8 +4,16 @@ body {
   height: 100%;
   background-color: #04fc7c;
   color: #393b39;
-  overflow: hidden;
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+//
+//@media only screen and (max-width: 600px) {
+//  body {
+//    background-color: #393b39;
+//  }
+//
+//}

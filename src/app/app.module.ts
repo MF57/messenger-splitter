@@ -43,6 +43,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { UnassignedDebtComponent } from './unassigned-debt/unassigned-debt.component';
 import {HttpClientModule} from '@angular/common/http';
 import { NewDebtComponent } from './new-debt/new-debt.component';
+import { ChoosePeopleComponent } from './choose-people/choose-people.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { NewDebtComponent } from './new-debt/new-debt.component';
     MainComponent,
     PersonDebtsComponent,
     UnassignedDebtComponent,
-    NewDebtComponent
+    NewDebtComponent,
+    ChoosePeopleComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,7 @@ import { NewDebtComponent } from './new-debt/new-debt.component';
     MatTreeModule,
     ScrollingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   entryComponents: [NewDebtComponent],
   providers: [],

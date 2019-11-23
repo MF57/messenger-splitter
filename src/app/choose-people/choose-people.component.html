@@ -1,0 +1,15 @@
+<div class="main-wrapper alternate-theme">
+  <div *ngIf="availablePeople.length > 0" class="people-wrapper">
+    <div class="header">Wybierz przyjaciół, za których zapłaciłeś:</div>
+    <div (click)="toggle(person, cb)" class="person-wrapper" *ngFor="let person of availablePeople">
+      <img class="img" [src]="person.imageSrc"/>
+      <div class="person-name">{{person.name}}</div>
+      <mat-checkbox #cb (change)="setPerson(person, cb)" class="checkbox"></mat-checkbox>
+    </div>
+    <button (click)="save()" class="save-icon" mat-raised-button color="primary">ROZDZIEL PŁATNOŚCI</button>
+  </div>
+</div>
+
+
+
+
