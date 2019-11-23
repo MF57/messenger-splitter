@@ -7,7 +7,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="styles.4ea7ae9d1ed94a741fb5.css"></head>
+<link rel="stylesheet" href="styles.27e141c44f0c2cac7155.css"></head>
 <body>
   <app-root></app-root>
 <script>
@@ -25,7 +25,6 @@
         MessengerExtensions.getContext('410323486289712',
             function success(thread_context){
                 // success
-                alert("SUCCESS: " + JSON.stringify(thread_context));
                 var div = document.createElement("div");
                 div.innerText = JSON.stringify(thread_context);
                 document.body.appendChild(div);
@@ -34,34 +33,15 @@
             },
             function error(err){
                 // error
-                alert("ERROR z eventy: " + err);
+                console.log("NOT INT MESSENGER");
             }
         );
     };
 
 
-  setTimeout(function() {
-      // the Messenger Extensions JS SDK is done loading
-      alert("2 SEKUNDY");
-      MessengerExtensions.getContext('410323486289712',
-          function success(thread_context){
-              // success
-              alert("SUCCESS: " + JSON.stringify(thread_context));
-              var div = document.createElement("div");
-              div.innerText = JSON.stringify(thread_context);
-              document.body.appendChild(div);
-              window.threadContext = thread_context;
 
-
-          },
-          function error(err){
-              // error
-              alert("ERROR: " + err);
-          }
-      );
-  }, 2000)
 
 
 </script>
-<script src="runtime-es2015.edb2fcf2778e7bf1d426.js" type="module"></script><script src="runtime-es5.edb2fcf2778e7bf1d426.js" nomodule defer></script><script src="polyfills-es5.6696c533341b95a3d617.js" nomodule defer></script><script src="polyfills-es2015.2987770fde9daa1d8a2e.js" type="module"></script><script src="main-es2015.887d882bc21d3344802d.js" type="module"></script><script src="main-es5.887d882bc21d3344802d.js" nomodule defer></script></body>
+<script src="runtime-es2015.edb2fcf2778e7bf1d426.js" type="module"></script><script src="runtime-es5.edb2fcf2778e7bf1d426.js" nomodule defer></script><script src="polyfills-es5.6696c533341b95a3d617.js" nomodule defer></script><script src="polyfills-es2015.2987770fde9daa1d8a2e.js" type="module"></script><script src="main-es2015.9d56eb231def999a8f89.js" type="module"></script><script src="main-es5.9d56eb231def999a8f89.js" nomodule defer></script></body>
 </html>
