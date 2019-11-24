@@ -10,7 +10,8 @@ export class FbService {
   }
 
   private baseUrl = 'https://graph.facebook.com/v5.0/';
-  private token = 'EAAF1LZBGkrzABAKoNxF4j1zzkjYA1UC7qR5aTMqFLE7MYyLDSZBicZC5DZBfxBaG4otZB8ZCZCJSvP9z4avEfK1EWZA9UXdgsmV1iDDeQLHVcYk9BgVwq2KV04k8dAjT4o7Ex8ODEgWb5gnysfpQ9exUxxCY6AGZCMpRkW2aY2hbV8ZAFK74LKlMk24LtiDxWuWd7qOGpBzMlGDAZDZD';
+  //TODO This is only sandbox token - do not keep it in the frontend in the production solution
+  private token = 'EAAF1LZBGkrzABAFJLa0bpknz9kCx28xCcgO7JNLcAFMKhj4L30mZBYEtasQadDdkdXArpIzdipSkckhDhKRlUFs2l4NT2j68wwBwNdRZCJO90c1FpcmsDFON3g9v5W0AUO1qOsDtZCrl3KROgGeQhmDG9EBFEk3Riwwyy3szY8e1n7LcqKHw0HX9z8C5AHYZD';
   private url = 'https://graph.facebook.com/v5.0/2607027426054154/threads';
 
 
